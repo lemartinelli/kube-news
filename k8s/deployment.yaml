@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: postgre
-          image: postgres:15.1
+          image: postgres:15.2
           ports:
           - containerPort: 5432
           env:
@@ -52,7 +52,7 @@ spec:
     spec:
       containers:
         - name: web
-          image: ledomartinelli/kube-news:{{TAG}}
+          image: ledomartinelli/kube-news:v1
           ports:
           - containerPort: 8080
           env:
@@ -75,4 +75,5 @@ spec:
   ports:
   - port: 80
     targetPort: 8080
-  type: LoadBalancer
+    nodePort: 30000
+  type: NodePort
